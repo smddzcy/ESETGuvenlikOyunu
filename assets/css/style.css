@@ -1,14 +1,56 @@
+* {
+	font-family: 'Open Sans';
+}
 body {
   padding-top: 50px;
   height:100%;
 }
 .main-mid {
+	width:800px;
+	margin:0 auto;
+}
+.social-media {
+	margin:0 auto;
+	margin-top:150px;
+}
+.btn-social {
+	vertical-align:middle;
+	padding: 10px 20px;
+	line-height:50px;
+	font-size:20px;
+	width:345px;
+}
+.btn-social i, .btn-social b {
+	float:left;
+}
+.btn-social b {
+	font-size:20px;
+	margin-left:10px;
+}
+.btn-social i {
+	margin-top:5px;
+}
+.main-mid .btn-facebook {
+	float:left;
+	margin-left:50px;
+	background-color:#3C5A99;
+}
+.main-mid .btn-twitter {
+	float:left;
+	margin-left:10px;
+	background-color:#6CADDF;
+}
+.main-aunt-container {
   padding: 40px 15px;
   text-align: center;
-  left:50%;
-  width:800px;
-  margin-left:-600px;
+  margin-left:50%;
+  margin-top:200px;
   position: relative;
+}
+#main-aunt {
+	position:absolute;
+	width:0px;
+	height:0px;
 }
 .main-mid img {
 	position:absolute;
