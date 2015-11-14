@@ -7,42 +7,59 @@ $data = $_POST['data'];
 $returnData = array();
 
 if (array_key_exists($function, Config::VALID_FUNCTIONS)) {
-
+    $userDBHelper = new User_DB_Helper();
     switch ($function) {
         case "increasePoint":
-            $userDBHelper = new User_DB_Helper();
-            $socialID = (int)$data['id'];
-            $userDBHelper->increasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+            if (isset($_COOKIE['platform_id'])) {
+                $socialID = (int)$_COOKIE['platform_id'];
+                $userDBHelper->increasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+            }
             break;
 
         case "decreasePoint":
-            $userDBHelper = new User_DB_Helper();
-            $socialID = (int)$data['id'];
-            $userDBHelper->decreasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+            if (isset($_COOKIE['platform_id'])) {
+                $socialID = (int)$_COOKIE['platform_id'];
+                $userDBHelper->decreasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+            }
             break;
 
         case "addUser":
-            $userDBHelper = new User_DB_Helper();
-            $data = array();
-            $data['platform'] = (int)$data['platform'];
-            $data['platform_id'] = (int)$data['platform_id'];
-            $data['name'] = (string)$data['name'];
-            $data['surname'] = (string)$data['surname'];
-            $data['email'] = (string)$data['email'];
-            //$points = (int)$data['points']; // Başlangıç puanı
-            $userDBHelper->addUser($data);
+            $userDBHelper->addUser(array(
+                'platform' => (int)$data['platform'],
+                'platform_id' => (int)$data['platform_id'],
+                'name' => (string)$data['name'],
+                'email' => (string)$data['email'],
+                'level' => 1
+            ));
             break;
 
         // Have no idea what it does, but "Mahmut: lazım olur"
         case "getUser":
-            $userDBHelper = new User_DB_Helper();
-            $socialID = (int)$data['id'];
-            $userDBHelper->getUser($socialID);
+            if (isset($_COOKIE['platform_id'])) {
+                $socialID = (int)$_COOKIE['platform_id'];
+                $userDBHelper->getUser($socialID);
+            }
             break;
+
+        case "nextLevel":
+            if (isset($_COOKIE['platform_id'])) {
+                $socialID = (int)$_COOKIE['platform_id'];
+                $levelCode = (int)$data;
+                $isCodeOK = $userDBHelper->checkLevelCode($levelCode);
+                if ($isCodeOK !== false) {
+                    $userDBHelper->increaseLevel($socialID);
+                    $newLevel = $userDBHelper->getLevel($socialID);
+                    // todo: yeni level ekrana basılcak
+                }
+            }
+            break;
+
     }
 
 }
-echo json_encode($returnData);
+
+if (!empty($returnData))
+    echo json_encode($returnData);
 
 /*
  {

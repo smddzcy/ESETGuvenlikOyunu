@@ -1,30 +1,22 @@
-var currentLevel; // Current level number
-var social_Platform; // Facebook=0 Twitter=1
-var social_ID; // ID
-
-const CONTENT_DIV_ID = "";
-const PROCESS_FILE = "Process.php";
-
-var dataTest = {
-    'id': 123,
-    'test': 'test123'
-};
+const CONTENT_DIV_ID = "#oyun";
 
 function process(funcName, data) {
+    var ret;
     $.ajax({
         type: "POST",
-        url: PROCESS_FILE,
+        url: "Process.php",
         data: {
             'function': funcName,
-            'data': dataTest
+            'data': data
         },
         dataType: "json",
         success: function (returnData) {
-            //todo: do things with return
+            ret = returnData;
         }
     });
+    return ret;
 }
 
-
-process("increasePoint", 123);
-
+function nextLevel() {
+    process("nextLevel", $("#levelCode").val());
+}
