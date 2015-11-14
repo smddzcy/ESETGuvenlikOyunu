@@ -70,6 +70,10 @@ body {
   margin-top:200px;
   position: relative;
 }
+.main-aunt-container img {
+	width:1200px;
+	height:600px;
+}
 #main-aunt {
 	position:absolute;
 	width:0px;

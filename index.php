@@ -4,7 +4,7 @@
 
       	<div class="main-mid">
       		<div class="main-aunt-container">
-      			<img id="main-aunt" style="opacity:0;" src="http://placehold.it/800x400" alt="">
+      			<img id="main-aunt" style="opacity:0;" src="assets/images/nebahatteyze.png" alt="">
       		</div>
       		<div class="social-media" style="opacity:0;">
 	    		<a href="/facebook-login.php">
