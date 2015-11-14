@@ -2,7 +2,7 @@ function process(funcName, data) {
     var ret;
     $.ajax({
         type: "POST",
-        url: "Process.php",
+        url: "../controller/Process.php",
         data: {
             'function': funcName,
             'data': data
@@ -17,6 +17,7 @@ function process(funcName, data) {
 
 function nextLevel() {
     var nextLevelData = process("nextLevel", $("#levelCode").val());
+    console.log(nextLevelData);
     if (nextLevelData.levelData != null) {
         $("#level-container").innerHTML = nextLevelData.levelData;
     }
