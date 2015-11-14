@@ -45,14 +45,13 @@ class User_DB_Helper
     }
 
 
-    public function getUser($id = false)
+    public function getUser($socialID)
     {
-        $query = "SELECT * FROM users";
-        if ($id === false) {
-            return $this->db->query($query);
-        } else {
-            return $this->db->query($query . " WHERE _ID=" . $id);
-        }
+        $query = "SELECT * FROM users WHERE platform_id=".$socialID;
+        $this->db->query($query);
+        if($this->db->affected_rows >= 1)
+            return true;
+        return false;
     }
 
     public function increasePoint($id, $point)

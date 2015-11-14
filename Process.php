@@ -6,7 +6,7 @@ $function = $_POST['function'];
 $data = $_POST['data'];
 $returnData = array();
 
-if (in_array($function,Config::$VALID_FUNCTIONS)) {
+if (in_array($function, Config::$VALID_FUNCTIONS)) {
 
     $userDBHelper = new User_DB_Helper();
     switch ($function) {
@@ -25,15 +25,15 @@ if (in_array($function,Config::$VALID_FUNCTIONS)) {
             break;
 
         case "addUser":
-
-            echo "zaa";
-            $userDBHelper->addUser(array(
-                'name' => (string)$data['name'],
-                'platform' => (int)$data['platform'],
-                'platform_id' => (int)$data['platform_id'],
-                'email' => (string)$data['email'],
-                '_level' => 1
-            ));
+            if ($userDBHelper->getUser((int)$data['platform_id']) !== true) {
+                $userDBHelper->addUser(array(
+                    'name' => (string)$data['name'],
+                    'platform' => (int)$data['platform'],
+                    'platform_id' => (int)$data['platform_id'],
+                    'email' => (string)$data['email'],
+                    '_level' => 1
+                ));
+            }
             break;
 
         // Have no idea what it does, but "Mahmut: lazım olur"
@@ -52,7 +52,10 @@ if (in_array($function,Config::$VALID_FUNCTIONS)) {
                 if ($isCodeOK !== false) {
                     $userDBHelper->increaseLevel($socialID);
                     $newLevel = $userDBHelper->getLevel($socialID);
-
+                    $newLevelFile = Config::LEVELS_DIRECTORY . "Level{$newLevel}.html";
+                    if (file_exists($newLevelFile)) {
+                        $returnData["levelData"] = file_get_contents($newLevelFile);
+                    }
                 }
             }
             break;
