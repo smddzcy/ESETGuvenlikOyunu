@@ -11,3 +11,6 @@ $(document).ready(function() {
 		}, 500);
 	});
 });
+function getPasswordStrength(string) {
+	return 7;
+}
