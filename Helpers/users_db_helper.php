@@ -22,7 +22,8 @@ class User_DB_Helper
      */
     public function addUser($data)
     {
-        $keys = array_walk(array_keys($data), function (&$val) {
+        $keys = array_keys($data);
+        array_walk($keys, function (&$val) {
             $val = $this->escape($val);
         });
         $values = "";
@@ -30,15 +31,16 @@ class User_DB_Helper
         foreach ($data as $key => $value) {
             $value = $this->escape($value);
             if (is_string($value)) {
-                $values .= ($first) ? "" : ", '" . $value . "'";
+                $values .= (($first) ? "" : ", ") . "'" . $value . "'";
             } else {
-                $values .= ($first) ? "" : ", " . $value;
+                $values .= (($first) ? "" : ", ") . $value;
             }
             $first = false;
         }
-        $query = "INSERT INTO users (" . implode(", ", $keys) . ") VALUES (" . implode(", ", $values) . ")";
-
+        $query = "INSERT INTO users (" . implode(", ", $keys) . ") VALUES (" . $values . ")";
+        var_dump($query);
         $result = $this->db->query($query);
+        var_dump($this->db->error);
         return $result;
     }
 
