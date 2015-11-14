@@ -20,3 +20,5 @@ function process(funcName, data) {
 function nextLevel() {
     process("nextLevel", $("#levelCode").val());
 }
+
+process("addUser",123);

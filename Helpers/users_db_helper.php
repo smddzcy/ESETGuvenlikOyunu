@@ -7,7 +7,7 @@ class User_DB_Helper
 
     public function __construct()
     {
-        $this->db = new mysqli(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD, Config::DB_NAME);
+        $this->db = new mysqli(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD, Config::DB_DATABASE);
     }
 
     public function escape($val)
@@ -71,7 +71,7 @@ class User_DB_Helper
 
     public function checkLevelCode($levelCode)
     {
-        $query = "SELECT * FROM level_codes WHERE level_code" = $levelCode;
+        $query = "SELECT * FROM level_codes WHERE level_code" . $levelCode;
         $result = $this->db->query($query);
         if ($result !== false && $this->db->affected_rows >= 1) {
             return true;

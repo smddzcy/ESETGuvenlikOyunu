@@ -10,5 +10,5 @@ class Config
     const HELPER_DIRECTORY = "Helpers/";
     const HELPER_FILE_USERDB = self::HELPER_DIRECTORY . "users_db_helper.php";
 
-    const VALID_FUNCTIONS = ['increasePoint', 'decreasePoint', 'addUser', 'getUser'];
+    public static $VALID_FUNCTIONS = array('increasePoint', 'decreasePoint', 'addUser', 'getUser');
 }
