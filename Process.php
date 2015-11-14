@@ -25,12 +25,14 @@ if (in_array($function,Config::$VALID_FUNCTIONS)) {
             break;
 
         case "addUser":
+
+            echo "zaa";
             $userDBHelper->addUser(array(
+                'name' => (string)$data['name'],
                 'platform' => (int)$data['platform'],
                 'platform_id' => (int)$data['platform_id'],
-                'name' => (string)$data['name'],
                 'email' => (string)$data['email'],
-                'level' => 1
+                '_level' => 1
             ));
             break;
 
