@@ -14,6 +14,8 @@ a:hover {
 	margin-top:20px;
 }
 #level-container {
+	position:relative;
+	width:100%;
 	margin-top:50px;
 }
 .username {
