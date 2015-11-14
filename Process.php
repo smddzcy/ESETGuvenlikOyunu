@@ -1,31 +1,47 @@
 <?php
 
 require_once("Config.php");
-
+require_once(Config::HELPER_FILE_USERDB);
 $function = $_POST['function'];
+$data = $_POST['data'];
 $returnData = array();
 
 if (array_key_exists($function, Config::VALID_FUNCTIONS)) {
 
     switch ($function) {
         case "increasePoint":
-            require_once(Config::HELPER_FILE_USERDB);
             $userDBHelper = new User_DB_Helper();
-            $userDBHelper->increasePoint();
+            $socialID = (int)$data['id'];
+            $userDBHelper->increasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
             break;
 
         case "decreasePoint":
+            $userDBHelper = new User_DB_Helper();
+            $socialID = (int)$data['id'];
+            $userDBHelper->decreasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
             break;
 
         case "addUser":
+            $userDBHelper = new User_DB_Helper();
+            $data = array();
+            $data['platform'] = (int)$data['platform'];
+            $data['platform_id'] = (int)$data['platform_id'];
+            $data['name'] = (string)$data['name'];
+            $data['surname'] = (string)$data['surname'];
+            $data['email'] = (string)$data['email'];
+            //$points = (int)$data['points']; // Başlangıç puanı
+            $userDBHelper->addUser($data);
             break;
 
+        // Have no idea what it does, but "Mahmut: lazım olur"
         case "getUser":
+            $userDBHelper = new User_DB_Helper();
+            $socialID = (int)$data['id'];
+            $userDBHelper->getUser($socialID);
             break;
     }
 
 }
-
 echo json_encode($returnData);
 
 /*
