@@ -3,21 +3,28 @@ var social_Platform; // Facebook=0 Twitter=1
 var social_ID; // ID
 
 const CONTENT_DIV_ID = "";
-const SOCIAL_MANAGER_FILE = "";
 const PROCESS_FILE = "Process.php";
 
+var dataTest = {
+    'id': 123,
+    'test': 'test123'
+};
 
-function process(funcName,data){
+function process(funcName, data) {
     $.ajax({
         type: "POST",
         url: PROCESS_FILE,
         data: {
             'function': funcName,
-            'data': data
+            'data': dataTest
         },
         dataType: "json",
-        success: function (data) {
+        success: function (returnData) {
             //todo: do things with return
         }
     });
 }
+
+
+process("increasePoint", 123);
+
