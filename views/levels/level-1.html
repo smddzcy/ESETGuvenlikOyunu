@@ -5,9 +5,12 @@
 		<form>
         <fieldset>
             <legend>Please type in your password</legend>
-            User: <input type="text" id="username" /><br />
             Pass: <input type="password" id="password" />
-            <div id="messages"></div>
+            <div id="password-strength">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+            </div>
         </fieldset>
     </form>
 		<div id="messages"></div>
