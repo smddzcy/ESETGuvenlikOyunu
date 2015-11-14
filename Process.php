@@ -13,14 +13,20 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
         case "increasePoint":
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
-                $userDBHelper->increasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+                $points = (int)$data['points'];
+                if ($points > Config::MAX_POINT)
+                    break;
+                $userDBHelper->increasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
             }
             break;
 
         case "decreasePoint":
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
-                $userDBHelper->decreasePoint($socialID, 10); // Puan sayısı burda değiştirilebilir
+                $points = (int)$data['points'];
+                if ($points > Config::MAX_POINT)
+                    break;
+                $userDBHelper->decreasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
             }
             break;
 

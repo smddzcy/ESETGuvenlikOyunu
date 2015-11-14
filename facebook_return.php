@@ -16,7 +16,6 @@ curl_setopt_array($curl, array(
 ));
 
 $json = json_decode(curl_exec($curl));
-var_dump($json);
 curl_close($curl);
 
 checkPermissions($json);
@@ -44,8 +43,6 @@ $data = array(
 	)
 );
 
-var_dump($user_data);
-
 $curl = curl_init();
 
 curl_setopt($curl, CURLOPT_URL, "http://localhost/esetGuvenlik/Process.php");
@@ -56,8 +53,6 @@ curl_setopt_array($curl, array(
 	CURLOPT_POST => true,
 	CURLOPT_POSTFIELDS => http_build_query($data)
 ));
-
-var_dump(curl_exec($curl));
 
 function rerequestPermissions($json) {
 	header("Location: https://www.facebook.com/dialog/oauth?".
@@ -78,7 +73,6 @@ function checkPermissions($json) {
 	));
 
 	$perms = json_decode(curl_exec($curl));
-	var_dump($perms);
 
 	foreach ($perms->data as $key => $value) {
 		if($value->status !== "granted") {
