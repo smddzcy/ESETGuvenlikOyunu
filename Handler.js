@@ -18,5 +18,8 @@ function process(funcName, data) {
 }
 
 function nextLevel() {
-    process("nextLevel", $("#levelCode").val());
+    var nextLevelData = process("nextLevel", $("#levelCode").val());
+    if (nextLevelData.levelData != null) {
+        $("#level-container").innerHTML = nextLevelData.levelData;
+    }
 }

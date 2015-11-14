@@ -7,7 +7,7 @@ class User_DB_Helper
 
     public function __construct()
     {
-        $this->db = new mysqli(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD, Config::DB_NAME);
+        $this->db = new mysqli(Config::DB_HOST, Config::DB_USERNAME, Config::DB_PASSWORD, Config::DB_DATABASE);
     }
 
     public function escape($val)
@@ -22,7 +22,8 @@ class User_DB_Helper
      */
     public function addUser($data)
     {
-        $keys = array_walk(array_keys($data), function (&$val) {
+        $keys = array_keys($data);
+        array_walk($keys, function (&$val) {
             $val = $this->escape($val);
         });
         $values = "";
@@ -30,27 +31,27 @@ class User_DB_Helper
         foreach ($data as $key => $value) {
             $value = $this->escape($value);
             if (is_string($value)) {
-                $values .= ($first) ? "" : ", '" . $value . "'";
+                $values .= (($first) ? "" : ", ") . "'" . $value . "'";
             } else {
-                $values .= ($first) ? "" : ", " . $value;
+                $values .= (($first) ? "" : ", ") . $value;
             }
             $first = false;
         }
-        $query = "INSERT INTO users (" . implode(", ", $keys) . ") VALUES (" . implode(", ", $values) . ")";
-
+        $query = "INSERT INTO users (" . implode(", ", $keys) . ") VALUES (" . $values . ")";
+        var_dump($query);
         $result = $this->db->query($query);
+        var_dump($this->db->error);
         return $result;
     }
 
 
-    public function getUser($id = false)
+    public function getUser($socialID)
     {
-        $query = "SELECT * FROM users";
-        if ($id === false) {
-            return $this->db->query($query);
-        } else {
-            return $this->db->query($query . " WHERE _ID=" . $id);
-        }
+        $query = "SELECT * FROM users WHERE platform_id=".$socialID;
+        $this->db->query($query);
+        if($this->db->affected_rows >= 1)
+            return true;
+        return false;
     }
 
     public function increasePoint($id, $point)
@@ -71,7 +72,7 @@ class User_DB_Helper
 
     public function checkLevelCode($levelCode)
     {
-        $query = "SELECT * FROM level_codes WHERE level_code" = $levelCode;
+        $query = "SELECT * FROM level_codes WHERE level_code" . $levelCode;
         $result = $this->db->query($query);
         if ($result !== false && $this->db->affected_rows >= 1) {
             return true;
