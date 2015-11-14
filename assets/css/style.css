@@ -1,6 +1,29 @@
 * {
 	font-family: 'Open Sans';
 }
+a {
+	color:black;
+}
+a:hover {
+	background-color:transparent !important;
+}
+#navbar {
+	height:100px !important;
+}
+#navbar ul {
+	margin-top:20px;
+}
+.level-container {
+	margin-top:50px;
+}
+.username {
+	color:white;
+	font-size:20px;
+}
+span.caret {
+	font-size:20px;
+	color:white;
+}
 body {
   padding-top: 50px;
   height:100%;
