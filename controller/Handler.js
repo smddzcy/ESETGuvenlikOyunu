@@ -15,22 +15,3 @@ function process(funcName, data) {
     });
     return ret;
 }
-
-function nextLevel() {
-    var nextLevelData = process("nextLevel", $("#levelCode").val()).levelData;
-    if (nextLevelData != null) {
-        console.log($("#level-container").innerHTML);
-        $("#level-container").animate({
-            left: "-=400",
-            opacity: 0
-        }, 500, function () {
-            $("#level-container").html(nextLevelData);
-            $("#level-container").css('left', '400');
-            $("#level-container").animate({
-                left: "-=400",
-                opacity: 1
-            }, 500, function () {
-            });
-        });
-    }
-}
