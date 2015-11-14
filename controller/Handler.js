@@ -2,14 +2,15 @@ function process(funcName, data) {
     var ret;
     $.ajax({
         type: "POST",
-        url: "../controller/Process.php",
+        url: "http://localhost/ESETGuvenlikOyunu/controller/Process.php",
+        async: false,
         data: {
             'function': funcName,
             'data': data
         },
         dataType: "json",
         success: function (returnData) {
-            ret = returnData;
+            ret = returnData.levelData;
         }
     });
     return ret;
@@ -17,8 +18,8 @@ function process(funcName, data) {
 
 function nextLevel() {
     var nextLevelData = process("nextLevel", $("#levelCode").val());
-    console.log(nextLevelData);
-    if (nextLevelData.levelData != null) {
-        $("#level-container").innerHTML = nextLevelData.levelData;
+    if (nextLevelData != null) {
+        console.log($("#level-container").innerHTML);
+        $("#level-container").html(nextLevelData);
     }
 }
