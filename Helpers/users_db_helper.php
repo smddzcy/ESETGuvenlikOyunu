@@ -22,7 +22,8 @@ class User_DB_Helper
      */
     public function addUser($data)
     {
-        $keys = array_walk(array_keys($data), function (&$val) {
+        $keys = array_keys($data);
+        array_walk($keys, function (&$val) {
             $val = $this->escape($val);
         });
         $values = "";
