@@ -10,26 +10,27 @@ function process(funcName, data) {
         },
         dataType: "json",
         success: function (returnData) {
-            ret = returnData.levelData;
+            ret = returnData;
         }
     });
     return ret;
 }
 
 function nextLevel() {
-    var nextLevelData = process("nextLevel", $("#levelCode").val());
+    var nextLevelData = process("nextLevel", $("#levelCode").val()).levelData;
     if (nextLevelData != null) {
         console.log($("#level-container").innerHTML);
         $("#level-container").animate({
             left: "-=400",
             opacity: 0
-        }, 500, function() {
+        }, 500, function () {
             $("#level-container").html(nextLevelData);
             $("#level-container").css('left', '400');
             $("#level-container").animate({
                 left: "-=400",
                 opacity: 1
-            }, 500, function() {});
+            }, 500, function () {
+            });
         });
     }
 }
