@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 });
 $("#password").keypress(function () {
-    var val = $("#password").val();
+    var val = calculatePoint($("#password").val());
     progress_bar = $("#password-strength").find(".progress-bar");
     progress_bar.attr('aria-valuenow', val);
     progress_bar.css('width', val + "%");
