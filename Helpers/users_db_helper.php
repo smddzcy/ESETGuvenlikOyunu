@@ -47,9 +47,9 @@ class User_DB_Helper
 
     public function getUser($socialID)
     {
-        $query = "SELECT * FROM users WHERE platform_id=".$socialID;
+        $query = "SELECT * FROM users WHERE platform_id=" . $socialID;
         $this->db->query($query);
-        if($this->db->affected_rows >= 1)
+        if ($this->db->affected_rows >= 1)
             return true;
         return false;
     }
@@ -72,7 +72,7 @@ class User_DB_Helper
 
     public function checkLevelCode($levelCode)
     {
-        $query = "SELECT * FROM level_codes WHERE level_code" . $levelCode;
+        $query = "SELECT * FROM level_codes WHERE code=" . $levelCode;
         $result = $this->db->query($query);
         if ($result !== false && $this->db->affected_rows >= 1) {
             return true;
