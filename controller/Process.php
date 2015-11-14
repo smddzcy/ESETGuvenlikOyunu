@@ -13,7 +13,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
         case "increasePoint":
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
-                $points = (int)$data['points'];
+                $points = (int)$data;
                 if ($points > Config::MAX_POINT)
                     break;
                 $userDBHelper->increasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
@@ -23,7 +23,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
         case "decreasePoint":
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
-                $points = (int)$data['points'];
+                $points = (int)$data;
                 if ($points > Config::MAX_POINT)
                     break;
                 $userDBHelper->decreasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
@@ -51,7 +51,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             break;
 
         case "nextLevel":
-            if (isset($_COOKIE['platform_id'])) {
+            if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
                 $isCodeOK = $userDBHelper->checkLevelCode($levelCode);

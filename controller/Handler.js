@@ -1,5 +1,3 @@
-const CONTENT_DIV_ID = "#oyun";
-
 function process(funcName, data) {
     var ret;
     $.ajax({
@@ -22,4 +20,12 @@ function nextLevel() {
     if (nextLevelData.levelData != null) {
         $("#level-container").innerHTML = nextLevelData.levelData;
     }
+}
+
+function increasePoint(point) {
+    process("increasePoint", point);
+}
+
+function decreasePoint(point){
+    process("decreasePoint", point);
 }
