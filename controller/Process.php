@@ -51,12 +51,16 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
 
         case "calculatePoint":
             if (isset($_COOKIE['platform_id'])) {
-
+                $socialID = (int)$_COOKIE['platform_id'];
+                $currentLevel = $userDBHelper->getLevel($socialID);
+                require_once("PointCalculator.php");
+                $calculatedPoint = new CalculatePoint($currentLevel, $data);
+                $returnData["point"] = $calculatedPoint;
             }
             break;
 
         case "nextLevel": // todo: puanı hesaplatıp burada dbye yaz
-        $returnData["levelData"] = file_get_contents(Config::LEVELS_DIRECTORY . "level-2.html");
+            $returnData["levelData"] = file_get_contents(Config::LEVELS_DIRECTORY . "level-2.html");
             if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
