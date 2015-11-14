@@ -1,7 +1,31 @@
 body {
   padding-top: 50px;
+  height:100%;
 }
-.starter-template {
+.main-mid {
   padding: 40px 15px;
   text-align: center;
+  left:50%;
+  width:800px;
+  margin-left:-600px;
+  position: relative;
+}
+.main-mid img {
+	position:absolute;
+	left:0;
+	top:0;
+}
+h1 {
+	font-size:70px;
+}
+h2 {
+	font-size:40px;
+}
+body {
+	background: -webkit-radial-gradient(#0D545B, #16838C, #0D545B); /* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(#0D545B, #16838C, #0D545B); /* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(#0D545B, #16838C, #0D545B); /* For Firefox 3.6 to 15 */
+	background: radial-gradient(#0D545B, #16838C, #0D545B); /* Standard syntax */
+	background-repeat:no-repeat;
+	background-size:cover;
 }
