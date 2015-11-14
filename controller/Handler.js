@@ -22,11 +22,3 @@ function nextLevel() {
         $("#level-container").innerHTML = nextLevelData.levelData;
     }
 }
-
-function increasePoint(point) {
-    process("increasePoint", point);
-}
-
-function decreasePoint(point){
-    process("decreasePoint", point);
-}

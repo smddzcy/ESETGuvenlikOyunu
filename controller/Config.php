@@ -12,6 +12,7 @@ class Config
     const LEVELS_DIRECTORY = "Levels/";
 
     const MAX_POINT = 20;
+    const MIN_POINT = 0;
 
     public static $VALID_FUNCTIONS = array('increasePoint', 'decreasePoint', 'addUser', 'getUser');
 }

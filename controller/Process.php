@@ -14,7 +14,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
                 $points = (int)$data;
-                if ($points > Config::MAX_POINT)
+                if ($points > Config::MAX_POINT || $points < Config::MIN_POINT)
                     break;
                 $userDBHelper->increasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
             }
@@ -24,7 +24,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
                 $points = (int)$data;
-                if ($points > Config::MAX_POINT)
+                if ($points > Config::MAX_POINT || $points < Config::MIN_POINT)
                     break;
                 $userDBHelper->decreasePoint($socialID, $points); // Puan sayısı burda değiştirilebilir
             }
@@ -50,7 +50,13 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             }
             break;
 
-        case "nextLevel":
+        case "calculatePoint":
+            if (isset($_COOKIE['platform_id'])) {
+
+            }
+            break;
+
+        case "nextLevel": // todo: puanı hesaplatıp burada dbye yaz
             if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
