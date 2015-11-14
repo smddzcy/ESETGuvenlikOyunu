@@ -7,8 +7,7 @@ class Config
     const DB_PASSWORD = "";
     const DB_DATABASE = "";
 
-    const HELPER_DIRECTORY = "Helpers/";
-    const HELPER_FILE_USERDB = self::HELPER_DIRECTORY . "users_db_helper.php";
+    const HELPER_FILE_USERDB = "Helpers/users_db_helper.php";
 
     public static $VALID_FUNCTIONS = array('increasePoint', 'decreasePoint', 'addUser', 'getUser');
 }
