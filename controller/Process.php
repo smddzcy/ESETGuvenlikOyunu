@@ -55,14 +55,14 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
                 $isCodeOK = $userDBHelper->checkLevelCode($levelCode);
-                if ($isCodeOK !== false) {
+                //if ($isCodeOK !== false) {
                     $userDBHelper->increaseLevel($socialID);
                     $newLevel = $userDBHelper->getLevel($socialID);
-                    $newLevelFile = Config::LEVELS_DIRECTORY . "Level{$newLevel}.html";
+                    $newLevelFile = Config::LEVELS_DIRECTORY . "level-{$newLevel}.html";
                     if (file_exists($newLevelFile)) {
                         $returnData["levelData"] = file_get_contents($newLevelFile);
                     }
-                }
+                //}
             }
             break;
 
