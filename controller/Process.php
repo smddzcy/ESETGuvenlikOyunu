@@ -57,7 +57,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             break;
 
         case "nextLevel": // todo: puanı hesaplatıp burada dbye yaz
-            if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
+            if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
                 $isCodeOK = $userDBHelper->checkLevelCode($levelCode);
