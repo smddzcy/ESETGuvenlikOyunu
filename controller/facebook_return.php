@@ -54,7 +54,7 @@ curl_setopt_array($curl, array(
 	CURLOPT_POSTFIELDS => http_build_query($data)
 ));
 
-function rerequestPermissions($json) {
+function rerequestPermissions() {
 	header("Location: https://www.facebook.com/dialog/oauth?".
     "client_id=1665895287021960&".
     "redirect_uri=http://localhost/esetGuvenlik/facebook_return.php&".
@@ -76,7 +76,7 @@ function checkPermissions($json) {
 
 	foreach ($perms->data as $key => $value) {
 		if($value->status !== "granted") {
-			rerequestPermissions($json);
+			rerequestPermissions();
 		}
 	}
 }
