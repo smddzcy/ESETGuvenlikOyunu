@@ -50,6 +50,13 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             }
             break;
 
+        case "getUserPoint":
+            if (isset($_COOKIE['platform_id'])) {
+                $socialID = (int)$_COOKIE['platform_id'];
+                $returnData['userData'] = $userDBHelper->getUser($socialID)->fetch_assoc()['points'];
+            }
+            break;
+
         case "calculatePoint":
             if (isset($_COOKIE['platform_id'])) {
                 $socialID = (int)$_COOKIE['platform_id'];
