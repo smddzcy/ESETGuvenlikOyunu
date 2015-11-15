@@ -14,17 +14,32 @@ a:hover {
 	margin-top:20px;
 }
 #level-container {
-	position:relative;
 	width:100%;
 	margin-top:50px;
 }
 #level-container #pre-level {
 	position:absolute;
-	width:200px;
+	width:800px;
+	left:50%;
+	margin-left:-400px;
+	top:50px;
+	opacity:1;
+	text-align:center;
+	z-index:99;
 }
 #level-container #pre-level img {
 	width:100%;
-	opacity:0.1;
+	opacity:1;
+}
+#level-container #pre-level .btn {
+	display:inline-block;
+	margin:0 auto;
+	margin-top:10px;
+	padding:20px 30px;
+	font-size:20px;
+}
+#level {
+	opacity:0.2;
 }
 .username {
 	color:white;
