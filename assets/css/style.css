@@ -78,8 +78,7 @@ body {
 }
 #level .panel.level-2 .panel-body {
 	
-	max-height:500px;
-	overflow-y:scroll;
+	
 }
 #level .panel .panel-body input[type=password] {
 	width:160px;
@@ -112,7 +111,6 @@ span.caret {
 }
 body {
   padding-top: 50px;
-  height:100%;
 }
 .main-mid {
 	width:800px;

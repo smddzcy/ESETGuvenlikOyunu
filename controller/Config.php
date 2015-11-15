@@ -15,5 +15,5 @@ class Config
     const MAX_POINT = 20;
     const MIN_POINT = 0;
 
-    public static $VALID_FUNCTIONS = array('increasePoint', 'decreasePoint', 'addUser', 'getUser', 'nextLevel', 'calculatePoint');
+    public static $VALID_FUNCTIONS = array('increasePoint', 'decreasePoint', 'addUser', 'getUser', 'nextLevel', 'calculatePoint', 'getUserPoint');
 }
