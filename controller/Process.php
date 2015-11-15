@@ -38,9 +38,8 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                     'email' => (string)$data['email'],
                     '_level' => 1
                 ));
-            } else {
-                $_COOKIE['platform_id'] = (int)$data['platform_id'];
             }
+            $_COOKIE['platform_id'] = (int)$data['platform_id'];
             break;
 
         // Have no idea what it does, but "Mahmut: lazım olur"
