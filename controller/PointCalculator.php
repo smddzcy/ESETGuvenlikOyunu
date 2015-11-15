@@ -21,7 +21,7 @@ class CalculatePoint
         if ($length >= 6 && $length <= 10) $strength += 1;
         if ($length >= 10 && $length <= 16) $strength += 2;
         if ($length > 16) $strength += 3;
-        preg_match_all('/[|!@#$%&*\/=?,;.:\-_+~^\\\]/', $password, $specialchars);
+        preg_match_all('/[|!@#$%&*\/=?,;.:\-_+~^\\]/', $password, $specialchars);
         $strength += sizeof($specialchars[0]) * 4;
         $chars = str_split($password);
         $num_unique_chars = sizeof(array_unique($chars));
