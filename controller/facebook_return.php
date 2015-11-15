@@ -56,7 +56,6 @@ curl_setopt_array($curl, array(
 
 echo curl_exec($curl);
 
-
 function rerequestPermissions()
 {
     header("Location: https://www.facebook.com/dialog/oauth?" .
