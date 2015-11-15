@@ -88,9 +88,9 @@ class User_DB_Helper
 
     public function getLevel($id)
     {
-        $query = "SELECT _level FROM users WHERE _ID=" . $id;
+        $query = "SELECT _level FROM users WHERE platform_id=" . $id;
         $result = $this->db->query($query);
-        return $result->fetch_assoc();
+        return $result->fetch_assoc()["_level"];
     }
 
 

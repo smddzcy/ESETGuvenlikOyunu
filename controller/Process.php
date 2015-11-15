@@ -38,7 +38,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                     'email' => (string)$data['email'],
                     '_level' => 1
                 ));
-                setcookie('platform_id', (int)$data['platform_id'], (time() + 86400), "/");
+                
             }
             break;
 

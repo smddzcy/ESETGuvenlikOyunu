@@ -54,6 +54,8 @@ curl_setopt_array($curl, array(
     CURLOPT_POSTFIELDS => http_build_query($data)
 ));
 
+setcookie('platform_id', (int)$user_data->id, (time() + 86400), "/");
+
 echo curl_exec($curl);
 
 function rerequestPermissions()
