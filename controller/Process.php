@@ -74,13 +74,16 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                     switch ($pointsData["level"]) {
                         case 1:
                             $calculatePoint = new CalculatePoint($currentLevel, $pointsData["password"]);
-                            $point = $calculatePoint->calculate();
+                            $point = ($calculatePoint->calculate() / 5);
+                            break;
+                        case 2:
+                            $point = 20 - (4 * ((int)$pointsData["c"]));
                             break;
                         default:
                             $point = 0;
                             break;
                     }
-                    $userDBHelper->increasePoint($socialID, ($point / 5));
+                    $userDBHelper->increasePoint($socialID, $point);
                     // Increase level & get to new level
                     $userDBHelper->increaseLevel($socialID);
                     $newLevel = $userDBHelper->getLevel($socialID);

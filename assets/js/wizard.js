@@ -33,12 +33,21 @@ $("#password").keyup(function () {
 });
 
 function nextLevel(level) {
+    var pointsData;
     switch (level) {
         case 1:
-            var pointsData = {
+            pointsData = {
                 "level": 1,
                 "password": $("#password").val()
             };
+            break;
+        case 2:
+            pointsData = {
+                "level": 2,
+                "c": c
+            };
+            break;
+        case 3:
             break;
         default:
             break;
@@ -77,7 +86,10 @@ function getIntoLevel() {
         });
     });
 }
+
+var c = 0;
 $(".level-2 img").on('click', function () {
+    ++c;
     swal({
         title: 'Zararlı İçerik!',
         text: 'Bu tarz reklamlar bilgi hırsızlığı amacıyla oluşturulmuş ya da insanları kandırmaya yönelik içerikler barındırıyor olabilir.',
