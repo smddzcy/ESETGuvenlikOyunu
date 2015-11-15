@@ -48,17 +48,14 @@ class User_DB_Helper
     public function getUser($socialID)
     {
         $query = "SELECT * FROM users WHERE platform_id=" . $socialID;
-        $this->db->query($query);
-        if ($this->db->affected_rows >= 1)
-            return true;
-        return false;
+        return $this->db->query($query);
     }
 
     public function increasePoint($id, $point)
     {
         $id = $this->escape((int)$id);
         $point = $this->escape((int)$point);
-        $query = "UPDATE users SET points=points+" . $point . " WHERE _ID=" . $id;
+        $query = "UPDATE users SET points=points+" . $point . " WHERE platform_id=" . $id;
         return $this->db->query($query);
     }
 
@@ -66,13 +63,13 @@ class User_DB_Helper
     {
         $id = $this->escape((int)$id);
         $point = $this->escape((int)$point);
-        $query = "UPDATE users SET points=points-" . $point . " WHERE _ID=" . $id;
+        $query = "UPDATE users SET points=points-" . $point . " WHERE platform_id=" . $id;
         return $this->db->query($query);
     }
 
-    public function checkLevelCode($levelCode)
+    public function checkLevelCode($currentLevel, $levelCode)
     {
-        $query = "SELECT * FROM level_codes WHERE code=" . $levelCode;
+        $query = "SELECT * FROM level_codes WHERE code=" . $levelCode . " AND _ID=" . $currentLevel;
         $result = $this->db->query($query);
         if ($result !== false && $this->db->affected_rows >= 1) {
             return true;
@@ -82,7 +79,7 @@ class User_DB_Helper
 
     public function increaseLevel($id)
     {
-        $query = "UPDATE users SET _level=_level+1 WHERE _ID=" . $id;
+        $query = "UPDATE users SET _level=_level+1 WHERE platform_id=" . $id;
         return $this->db->query($query);
     }
 

@@ -30,7 +30,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             break;
 
         case "addUser":
-            if ($userDBHelper->getUser((int)$data['platform_id']) !== true) {
+            if (empty($userDBHelper->getUser((int)$data['platform_id'])->fetch_assoc()['_ID'])) {
                 $userDBHelper->addUser(array(
                     'name' => (string)$data['name'],
                     'platform' => (int)$data['platform'],
@@ -38,7 +38,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                     'email' => (string)$data['email'],
                     '_level' => 1
                 ));
-                
+
             }
             break;
 
@@ -55,18 +55,36 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                 $socialID = (int)$_COOKIE['platform_id'];
                 $currentLevel = $userDBHelper->getLevel($socialID);
                 require_once("PointCalculator.php");
-                $calculatedPoint = new CalculatePoint($currentLevel, $data);
-                $returnData["point"] = $calculatedPoint;
+                $calculatePoint = new CalculatePoint($currentLevel, $data);
+                $point = $calculatePoint->calculate();
+                $returnData["point"] = $point;
             }
             break;
 
         case "nextLevel": // todo: puanı hesaplatıp burada dbye yaz
-            $returnData["levelData"] = file_get_contents(Config::LEVELS_DIRECTORY . "level-2.html");
             if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
-                $levelCode = (int)$data;
-                $isCodeOK = $userDBHelper->checkLevelCode($levelCode);
-                if ($isCodeOK !== false) {
+                $levelCode = (int)$data["levelCode"];
+                $pointsData = $data["pointsData"];
+                $currentLevel = $userDBHelper->getLevel($socialID);
+                $isCodeOK = $userDBHelper->checkLevelCode($currentLevel, $levelCode);
+                if ($isCodeOK === true) {
+                    require_once("PointCalculator.php");
+                    // Add points
+                    switch ($pointsData["level"]) {
+                        case 1:
+                            $calculatePoint = new CalculatePoint($currentLevel, $pointsData["password"]);
+                            $point = ($calculatePoint->calculate() / 5);
+                            break;
+                        case 2:
+                            $point = 20 - (4 * ((int)$pointsData["c"]));
+                            break;
+                        default:
+                            $point = 0;
+                            break;
+                    }
+                    $userDBHelper->increasePoint($socialID, $point);
+                    // Increase level & get to new level
                     $userDBHelper->increaseLevel($socialID);
                     $newLevel = $userDBHelper->getLevel($socialID);
                     $newLevelFile = Config::LEVELS_DIRECTORY . "level-{$newLevel}.html";
