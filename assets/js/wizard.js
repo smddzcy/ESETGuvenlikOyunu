@@ -50,7 +50,7 @@ function nextLevel(level) {
         case 3:
             pointsData = {
                 "level": 3,
-                "mails": c
+                "mails": $js_mails
             };
             break;
         default:
@@ -91,6 +91,8 @@ function getIntoLevel() {
     });
 }
 
+$js_mails = [];
+
 var c = 0;
 $(".level-2 img").on('click', function () {
     ++c;
@@ -102,38 +104,3 @@ $(".level-2 img").on('click', function () {
     });
 });
 $mail_list = $("#mail-list");
-$js_mails = [];
-for(var i = 0; i<15; i++) {
-    $mail = $('<div class="panel panel-default">'+
-            '<div class="panel-heading" role="tab" id="headingOne">'+
-              '<h4 class="panel-title">'+
-                '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'" aria-expanded="true" aria-controls="#collapse'+i+'">'+
-                    '<div class="mail-sender"><b>I6 Promotion</b></div>'+
-                    '<div class="mail-title">İPHONE 6 KAZANDINIZ, ALMAK İÇİN TIKLAYIN</div>'+
-                    '<div class="btn btn-danger mark-as-spam" onclick="markSpam('+i+')">'+
-                        '<i class="fa fa-times"></i>'+
-                        'Spam Olarak İşaretle'+
-                    '</div>'+
-                    '<div class="btn btn-success mark-as-safe" onclick="markSafe('+i+')">'+
-                        '<i class="fa fa-check"></i>'+
-                        'Spam Değil'+
-                    '</div>'+
-                    '<div class="clearfix"></div>'+
-                '</a>'+
-              '</h4>'+
-            '</div>'+
-            '<div id="#collapse'+i+'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">'+
-              '<div class="panel-body">'+
-                'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven\'t heard of them accusamus labore sustainable VHS.'+
-              '</div>'+
-            '</div>'+
-        '</div>');
-    $js_mails.push($mail);
-    $mail_list.append($mail);
-}
-var markSpam = function(i) {
-    $js_mails[i]['state'] = 0;
-}
-var markSafe = function(i) {
-    $js_mails[i]['state'] = 1;
-}
