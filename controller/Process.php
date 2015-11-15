@@ -80,8 +80,9 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                             $point = 20 - (4 * ((int)$pointsData["c"]));
                             break;
                         case 3:
-                            $calculatePoint = new CalculatePoint($currentLevel, $pointsData['mails']);
+                            $calculatePoint = new CalculatePoint($currentLevel, $pointsData);
                             $point = $calculatePoint->calculate();
+                            var_dump($point);
                             break;
                         default:
                             $point = 0;

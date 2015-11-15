@@ -50,7 +50,7 @@ function nextLevel(level) {
         case 3:
             pointsData = {
                 "level": 3,
-                "mails": $js_mails
+                "mails": js_mails
             };
             break;
         default:

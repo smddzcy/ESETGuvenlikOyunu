@@ -35,7 +35,7 @@ class CalculatePoint
 
     function level3($array)
     {
-        $point = 0;
+        $point = 20;
         $originalArray = array(
             0 => 0,
             1 => 0,
@@ -45,10 +45,13 @@ class CalculatePoint
         );
 
         foreach ($array as $k => $v) {
-            if ($array[$k] == $v)
-                $point += 4;
+            if ($array[$k] !== $v)
+                $point -= 4;
         }
-        return $point;
+        if ($point >= 0 && $point <= 20)
+            return $point;
+        else
+            return 0;
     }
 
     public function calculate()
