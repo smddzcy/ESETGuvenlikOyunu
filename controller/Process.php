@@ -74,6 +74,11 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                 $levelCode = (int)$data["levelCode"];
                 $pointsData = $data["pointsData"];
                 $currentLevel = $userDBHelper->getLevel($socialID);
+                if($currentLevel == 4){
+                    $newLevelFile = Config::LEVELS_DIRECTORY . "level-4.html";
+                    $returnData["levelData"] = file_get_contents($newLevelFile);
+                    break;
+                }
                 $isCodeOK = $userDBHelper->checkLevelCode($currentLevel, $levelCode);
                 if ($isCodeOK === true) {
                     require_once("PointCalculator.php");
