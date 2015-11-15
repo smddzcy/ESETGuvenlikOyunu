@@ -1,28 +1,38 @@
 <style>
-.btnz {
-    display: block;
-    float: left;
-    padding: 10px 15px;
-    border:none;
-    background-color: #ececec;
-    text-decoration: none;
-    font-size: 18px;
-    color: #FFF;
-}
+    .btnz {
+        display: block;
+        float: left;
+        padding: 10px 15px;
+        border: none;
+        background-color: #ececec;
+        text-decoration: none;
+        font-size: 18px;
+        color: #FFF;
+    }
 
-.btnz:hover {
-    color: #efefef;
-}
+    .btnz:hover {
+        color: #efefef;
+    }
 
-.facebook {
-    background-color: #3b5998;
-}
+    .facebook {
+        background-color: #3b5998;
+    }
 
-.twitter {
-    background-color: #55acee;
-}
+    .twitter {
+        background-color: #55acee;
+    }
 
 </style>
+<script type="text/javascript">
+    $().ready(function () {
+        var user = process("getUserPoint", null);
+        var points = user.userData;
+        $("#point").html(points);
+        $(".share.twitter").attr("data-text", "ESET Güvenlik Oyunu'ndan tamı tamına " + points + " puan kazandım. Siz de deneyin.");
+        $(".share.twitter").attr("href", "https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F&ref_src=twsrc%5Etfw&text=ESET%20G%C3%BCvenlik%20Oyunu%27ndan%20tam%C4%B1%20tam%C4%B1na%20" + points + "%20puan%20kazand%C4%B1m.%20Siz%20de%20deneyin.&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F%23");
+    });
+
+</script>
 <div id="level" class="level-last-scene">
     <div class="checkout-wrap">
         <ul class="checkout-bar">
@@ -35,19 +45,24 @@
         </ul>
     </div>
     <div class="panel panel-default level-1 last-scene">
-        
+
         <input type="hidden" id="levelCode" value="48547757">
+
         <div class="panel-body">
             <h1><b>Nebahat Teyze'ye yardımcı oldun!</b></h1>
             <img src="../assets/images/su-boregi.png" style="height:400px;">
-            <h3>Toplam skor: 88/100</h3>
+            <h3>Toplam skor: <span id="point"></span>/60</h3>
             <div class="last-scene-social-media">
-                <a class="btnz share facebook" href="#" onclick="shareFacebook()"><i class="fa fa-facebook"></i> Skoru Paylaş</a>
-                <a class="btnz share twitter" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F&ref_src=twsrc%5Etfw&text=ESET%20G%C3%BCvenlik%20Oyunu%27ndan%20tam%C4%B1%20tam%C4%B1na%203000%20puan%20kazand%C4%B1m.%20Siz%20de%20deneyin.&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F%23"
-                  data-text="ESET Güvenlik Oyunu'ndan tamı tamına 3000 puan kazandım. Siz de deneyin."><i class="fa fa-twitter"></i> Skoru Tweet'le</a>
+                <a class="btnz share facebook" href="#" onclick="shareFacebook()"><i class="fa fa-facebook"></i> Skoru
+                    Paylaş</a>
+                <a class="btnz share twitter"
+                   href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F&ref_src=twsrc%5Etfw&text=ESET%20G%C3%BCvenlik%20Oyunu%27ndan%20tam%C4%B1%20tam%C4%B1na%203000%20puan%20kazand%C4%B1m.%20Siz%20de%20deneyin.&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F%23"
+                   data-text=""><i
+                        class="fa fa-twitter"></i> Skoru Tweet'le</a>
             </div>
             <div class="clearfix"></div>
-            <p>Sayende Nebahat Teyze internette güvenle dolaşabilecek. Sen Nebahat Teyze'nin getirdiği su böreğini yerken, 2 ay lisanslı ESET Smart Security 8'i yükleyebilirsin.</p>
+            <p>Sayende Nebahat Teyze internette güvenle dolaşabilecek. Sen Nebahat Teyze'nin getirdiği su böreğini
+                yerken, 2 ay lisanslı ESET Smart Security 8'i yükleyebilirsin.</p>
         </div>
     </div>
 </div>
