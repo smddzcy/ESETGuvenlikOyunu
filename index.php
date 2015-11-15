@@ -5,7 +5,7 @@ if (isset($_COOKIE['platform_id'])) {
 include 'views/layouts/header.php';
 ?>
 
-    <div class="container">
+    <div class="container" style="margin-top:200px;">
 
         <div class="main-mid">
             <div class="main-aunt-container">
