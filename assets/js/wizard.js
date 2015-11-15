@@ -48,6 +48,10 @@ function nextLevel(level) {
             };
             break;
         case 3:
+            pointsData = {
+                "level": 3,
+                "mails": c
+            };
             break;
         default:
             break;
