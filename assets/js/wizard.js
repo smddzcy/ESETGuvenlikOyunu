@@ -30,7 +30,6 @@ $("#password").keypress(function () {
 function nextLevel() {
     var nextLevelData = process("nextLevel", $("#levelCode").val()).levelData;
     if (nextLevelData != null) {
-        console.log($("#level-container").innerHTML);
         $("#level-container").animate({
             left: "-=400",
             opacity: 0

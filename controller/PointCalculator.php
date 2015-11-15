@@ -26,10 +26,11 @@ class CalculatePoint
         $chars = str_split($password);
         $num_unique_chars = sizeof(array_unique($chars));
         $strength += $num_unique_chars * 2;
-        if ($strength < 16) return 1;
-        elseif ($strength >= 16 && $strength < 24) return 2;
-        elseif ($strength >= 24 && $strength < 30) return 3;
-        else return 4;
+        if ($strength < 12) return 1;
+        elseif ($strength >= 12 && $strength < 18) return 2;
+        elseif ($strength >= 18 && $strength < 24) return 3;
+        elseif ($strength >= 24 && $strength < 30) return 4;
+        else return 5;
     }
 
     public function calculate()
@@ -37,7 +38,7 @@ class CalculatePoint
         switch ($this->level) {
             case 1:
                 $passStrength = $this->level1($this->data);
-                return (int)($passStrength*2.5); // Good enough for demo
+                return (int)($passStrength * 20); // Good enough for demo
                 break;
             case 2:
                 break;
