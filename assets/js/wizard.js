@@ -93,8 +93,6 @@ function getIntoLevel() {
     });
 }
 
-$js_mails = [];
-
 var c = 0;
 $(".level-2 img").on('click', function () {
     ++c;
@@ -105,4 +103,3 @@ $(".level-2 img").on('click', function () {
         confirmButtonText: 'Tamam'
     });
 });
-$mail_list = $("#mail-list");
