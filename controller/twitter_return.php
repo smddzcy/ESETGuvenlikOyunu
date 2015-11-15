@@ -1,6 +1,6 @@
 <?php  
 
-$callbackUrl = "http://localhost/esetGuvenlik/";
+$callbackUrl = "http://localhost/ESETGuvenlikOyunu/";
 $oauthTimestamp = time();
 $nonce = md5(mt_rand()); 
 $oauthSignatureMethod = "HMAC-SHA1"; 
@@ -113,16 +113,19 @@ function buildAuthorizationHeader($oauthParams) {
 }
 
 $data = array(
-	"name" => $infoJson->name,
-	"platform" => 1,
-	"platform_id" => $infoJson->id,
-	"email" => "NULL"
+	"function" => "addUser",
+	"data" => array(
+		"name" => $infoJson->name,
+		"platform" => 1,
+		"platform_id" => $infoJson->id,
+		"email" => "NULL"
+	)
 );
 
 $ch = curl_init();
 
 curl_setopt_array($ch, array(
-	CURLOPT_URL => "http://localhost/esetGuvenlik/controller/Process.php",
+	CURLOPT_URL => "http://localhost/ESETGuvenlikOyunu/controller/Process.php",
 	CURLOPT_POST => true,
 	CURLOPT_POSTFIELDS => http_build_query($data),
 	CURLOPT_RETURNTRANSFER => true
@@ -132,7 +135,7 @@ curl_exec($ch);
 
 curl_close($ch);
 
-header("Location: http://localhost/esetGuvenlik/oyun");
+header("Location: http://localhost/ESETGuvenlikOyunu/oyun");
 die();
 
 ?>
