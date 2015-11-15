@@ -167,17 +167,14 @@ h2 {
 .dropdown.open {
 	background-color:transparent !important;
 }
-.mail-list {
-
-}
-ul.mail-list .panel .mail-sender {
+ul#mail-list .panel .mail-sender {
 	float:left;
 }
-ul.mail-list .panel .mail-title {
+ul#mail-list .panel .mail-title {
 	float:left;
 	margin-left:10px;
 }
-ul.mail-list .btn {
+ul#mail-list .btn {
 	float:right;
 }
 .mark-as-spam {
