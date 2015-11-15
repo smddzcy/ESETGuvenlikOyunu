@@ -4,16 +4,32 @@
 </div>
 <div id="level">
     <div class="panel panel-default level-1">
-        <div class="panel-heading">Nebahat Teyze'ye Güçlü Bir Şifre Oluşturmasında Yardımcı Ol</div>
+        <div class="panel-heading">
+            <h1><b>Seviye 1: Güçlü Bir Şifre</b></h1>
+            <h2>Görev: Nebahat Teyzenin güçlü bir şifre tanımlamasına yardımcı ol.</h2>
+        </div>
         <input type="hidden" id="levelCode" value="2xdnf2yncfdsn10tn1230nt12n3nbgasdmn1293n214">
         <div class="panel-body">
-            Pass: <input type="password" id="password" />
-            <div id="password-strength">
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+            <div class="password-group">
+                <small>Güçlü bir parola oluşturmak hesabınızın korunmasının en önemli adımıdır. Kısa ya da sık kullanılan kombinasyonlardan oluşan parolaların deneme yanılma yolu ile ele geçirilmesi çok kolaydır.
+
+Güçlü parola:
+- En az 8 karakterden oluşmalıdır.
+- Büyük harf, küçük harf, rakam ve noktalama içermelidir.
+- "123456" gibi ya da "aaaaaa" gibi kombinasyonlardan kaçınılmalıdır.</small>
+                <div class="clearfix"></div>
+                <hr>
+                <input type="password" id="password" />
+                <div id="password-strength">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+
+                    </div>
                 </div>
+                Şifre güvenliği: <span id="password-strength-text">Yetersiz</span>
+                <div class="clearfix"></div>
             </div>
-            <div class="btn btn-primary" onclick="nextLevel()">İleri</div>
+            <div class="btn btn-primary next-button" onclick="nextLevel()">İleri</div>
         </div>
     </div>
 </div>

@@ -18,10 +18,12 @@ $("#password").keypress(function () {
     progress_bar.css('width', val + "%");
 
     var bar_class = "danger";
+    var bar_text = "çok kısa.";
     if (val > 25 && val < 50) {
         bar_class = "warning";
+        var bar_text = "yetersiz.";
     } else if (val > 50) {
-        bar_class = "success";
+        var bar_text = "güçlü.";
     }
 
     progress_bar.attr('class', 'progress-bar progress-bar-' + bar_class);

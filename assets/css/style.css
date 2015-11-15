@@ -13,6 +13,11 @@ a:hover {
 #navbar ul {
 	margin-top:20px;
 }
+.next-button {
+	padding: 10px 30px;
+	font-size:20px;
+	margin-top:20px;
+}
 #level-container {
 	width:100%;
 	margin-top:50px;
@@ -40,6 +45,31 @@ a:hover {
 }
 #level {
 	opacity:0.2;
+}
+#level .panel .panel-heading h1 {
+	font-size:22px;
+}
+#level .panel .panel-heading h2 {
+	font-size:18px;
+}
+#level .panel .panel-body {
+	text-align:center;
+}
+#level .panel .panel-body input[type=password] {
+	width:160px;
+}
+#level .panel .panel-body .progress {
+	
+	margin-top:10px;
+	width:160px;
+	margin-left:-webkit-calc(50% - 80px);
+	margin-left:-moz-calc(50% - 80px);
+}
+.password-group {
+	background-color:#F2F2F2;
+	width: 100%;
+	margin: 0 auto;
+	padding:30px 30px;
 }
 .username {
 	color:white;
