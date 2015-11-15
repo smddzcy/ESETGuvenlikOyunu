@@ -19,14 +19,11 @@
         $("#mail_"+i).fadeOut(250, function() {
             $("#mail_"+i).hide();
             removed++;
+            if(removed >= 6) {
+                levelAtla();
+            }
         });
-        if(removed >= 6) {
-            levelAtla();
-        }
     }
-
-
-
 </script>
 
 <div id="pre-level">
