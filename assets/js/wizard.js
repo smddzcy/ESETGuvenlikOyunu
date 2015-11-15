@@ -25,6 +25,7 @@ $("#password").keypress(function () {
         bar_class = "warning";
         bar_text.html("Yetersiz");
     } else if (val > 50) {
+        bar_class = "success";
         bar_text.html("Güçlü");
     }
 
