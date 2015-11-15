@@ -33,6 +33,27 @@ class CalculatePoint
         else return 5;
     }
 
+    function level3($array)
+    {
+        $point = 20;
+        $originalArray = array(
+            0 => 0,
+            1 => 0,
+            2 => 1,
+            3 => 0,
+            4 => 1,
+        );
+
+        foreach ($array as $k => $v) {
+            if ($array[$k] !== $v)
+                $point -= 4;
+        }
+        if ($point >= 0 && $point <= 20)
+            return $point;
+        else
+            return 0;
+    }
+
     public function calculate()
     {
         switch ($this->level) {
@@ -40,9 +61,8 @@ class CalculatePoint
                 $passStrength = $this->level1($this->data);
                 return (int)($passStrength * 20); // Good enough for demo
                 break;
-            case 2:
-                break;
             case 3:
+                return $this->level3($this->data);
                 break;
         }
         return "";
