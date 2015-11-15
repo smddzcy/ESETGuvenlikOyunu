@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.27, for osx10.8 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.44, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: eset_hackathon
 -- ------------------------------------------------------
--- Server version	5.6.27
+-- Server version	5.5.44-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `level_codes` (
   `name` int(11) NOT NULL,
   `code` int(11) NOT NULL,
   PRIMARY KEY (`_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `level_codes` (
 
 LOCK TABLES `level_codes` WRITE;
 /*!40000 ALTER TABLE `level_codes` DISABLE KEYS */;
+INSERT INTO `level_codes` VALUES (1,0,2);
 /*!40000 ALTER TABLE `level_codes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-14 23:18:17
+-- Dump completed on 2015-11-15  2:04:52
