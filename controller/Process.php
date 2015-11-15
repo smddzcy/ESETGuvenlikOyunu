@@ -64,15 +64,26 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
         case "nextLevel": // todo: puanı hesaplatıp burada dbye yaz
             if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
-                $levelCode = (int)$data;
+                $levelCode = (int)$data["levelCode"];
+                $pointsData = $data["pointsData"];
                 $currentLevel = $userDBHelper->getLevel($socialID);
                 $isCodeOK = $userDBHelper->checkLevelCode($currentLevel, $levelCode);
                 if ($isCodeOK === true) {
                     require_once("PointCalculator.php");
                     // Add points
-                    $calculatePoint = new CalculatePoint($currentLevel, $data);
-                    $point = $calculatePoint->calculate();
-                    $userDBHelper->increasePoint($socialID, $point / 5);
+                    switch ($pointsData["level"]) {
+                        case 1:
+                            $calculatePoint = new CalculatePoint($currentLevel, $pointsData["password"]);
+                            $point = ($calculatePoint->calculate() / 5);
+                            break;
+                        case 2:
+                            $point = 20 - (4 * ((int)$pointsData["c"]));
+                            break;
+                        default:
+                            $point = 0;
+                            break;
+                    }
+                    $userDBHelper->increasePoint($socialID, $point);
                     // Increase level & get to new level
                     $userDBHelper->increaseLevel($socialID);
                     $newLevel = $userDBHelper->getLevel($socialID);

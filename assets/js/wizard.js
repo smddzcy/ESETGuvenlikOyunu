@@ -11,7 +11,7 @@ $(document).ready(function () {
         }, 500);
     });
 });
-$("#password").keypress(function () {
+$("#password").keyup(function () {
     var val = calculatePoint($("#password").val());
     progress_bar = $("#password-strength").find(".progress-bar");
     progress_bar.attr('aria-valuenow', val);
@@ -32,8 +32,31 @@ $("#password").keypress(function () {
     progress_bar.attr('class', 'progress-bar progress-bar-' + bar_class);
 });
 
-function nextLevel() {
-    var nextLevelData = process("nextLevel", $("#levelCode").val()).levelData;
+function nextLevel(level) {
+    var pointsData;
+    switch (level) {
+        case 1:
+            pointsData = {
+                "level": 1,
+                "password": $("#password").val()
+            };
+            break;
+        case 2:
+            pointsData = {
+                "level": 2,
+                "c": c
+            };
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
+    var processData = process("nextLevel", {
+        "levelCode": $("#levelCode").val(),
+        "pointsData": pointsData
+    });
+    var nextLevelData = processData.levelData;
     if (nextLevelData != null) {
         $("#level-container").animate({
             left: "-=400",
@@ -55,15 +78,18 @@ function calculatePoint(data) {
 }
 
 function getIntoLevel() {
-	$("#pre-level").fadeOut(500, function() {
-		$("#level").animate({
-			opacity: 1
-		}, 1000, function() {
+    $("#pre-level").fadeOut(500, function () {
+        $("#level").animate({
+            opacity: 1
+        }, 1000, function () {
 
-		});
-	});
+        });
+    });
 }
-$(".level-2 img").on('click', function() {
+
+var c = 0;
+$(".level-2 img").on('click', function () {
+    ++c;
     swal({
         title: 'Zararlı İçerik!',
         text: 'Bu tarz reklamlar bilgi hırsızlığı amacıyla oluşturulmuş ya da insanları kandırmaya yönelik içerikler barındırıyor olabilir.',
