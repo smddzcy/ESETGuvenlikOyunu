@@ -16,6 +16,9 @@ body {
 .nav .open a {
 	background-color:transparent !important;
 }
+.nav>li>a {
+	background-color:transparent !important;
+}
 .nav>li>a:hover {
 	background-color:transparent !important;
 }
