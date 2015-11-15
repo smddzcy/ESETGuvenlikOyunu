@@ -4,6 +4,15 @@
 a {
 	color:black;
 }
+body {
+	background: -webkit-radial-gradient(#0D545B, #16838C, #0D545B); /* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(#0D545B, #16838C, #0D545B); /* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(#0D545B, #16838C, #0D545B); /* For Firefox 3.6 to 15 */
+	background: radial-gradient(#0D545B, #16838C, #0D545B); /* Standard syntax */
+	background-repeat:no-repeat;
+	background-size:cover;
+	padding:0 !important;
+}
 .level-2 img:hover {
 	cursor: pointer;
 }
@@ -23,7 +32,7 @@ a:hover {
 }
 #level-container {
 	width:100%;
-	margin-top:50px;
+	margin-top:0;
 }
 #level-container #pre-level {
 	position:absolute;
@@ -155,14 +164,25 @@ h1 {
 h2 {
 	font-size:40px;
 }
-body {
-	background: -webkit-radial-gradient(#0D545B, #16838C, #0D545B); /* Safari 5.1 to 6.0 */
-	background: -o-radial-gradient(#0D545B, #16838C, #0D545B); /* For Opera 11.6 to 12.0 */
-	background: -moz-radial-gradient(#0D545B, #16838C, #0D545B); /* For Firefox 3.6 to 15 */
-	background: radial-gradient(#0D545B, #16838C, #0D545B); /* Standard syntax */
-	background-repeat:no-repeat;
-	background-size:cover;
-}
 .dropdown.open {
 	background-color:transparent !important;
+}
+.mail-list {
+
+}
+ul.mail-list .panel .mail-sender {
+	float:left;
+}
+ul.mail-list .panel .mail-title {
+	float:left;
+	margin-left:10px;
+}
+ul.mail-list .btn {
+	float:right;
+}
+.mark-as-spam {
+
+}
+.mark-as-safe {
+	margin-right:10px;
 }
