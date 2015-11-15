@@ -1,20 +1,28 @@
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1665895287021960',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+<style>
+.btnz {
+    display: block;
+    float: left;
+    padding: 10px 15px;
+    border:none;
+    background-color: #ececec;
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFF;
+}
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+.btnz:hover {
+    color: #efefef;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #55acee;
+}
+
+</style>
 <div id="pre-level">
     <img src="../assets/images/dialog-lvlpswrd.png" alt="">
 
@@ -29,15 +37,11 @@
         </div>
         <input type="hidden" id="levelCode" value="48547757">
         <div class="panel-body">
-        <script type="text/javascript">
-            FB.ui({
-              method: 'share',
-              href: 'http://localhost/ESETGuvenlikOyunu',
-            }, function(response){
-                
-            });
-        </script>
-            
+            <a class="btnz share facebook" href="#" onclick="shareFacebook()"><i class="fa fa-facebook"></i> Paylaş</a>
+
+            <a class="btnz share twitter" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F&ref_src=twsrc%5Etfw&text=ESET%20G%C3%BCvenlik%20Oyunu%27ndan%20tam%C4%B1%20tam%C4%B1na%203000%20puan%20kazand%C4%B1m.%20Siz%20de%20deneyin.&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F%23"
+              data-text="ESET Güvenlik Oyunu'ndan tamı tamına 3000 puan kazandım. Siz de deneyin."><i class="fa fa-twitter"></i> Tweet</a>
+
         </div>
     </div>
 </div>

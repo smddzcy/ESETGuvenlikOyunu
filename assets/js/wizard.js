@@ -60,8 +60,6 @@ function nextLevel(level) {
         "levelCode": $("#levelCode").val(),
         "pointsData": pointsData
     });
-    if (pointsData.level == 3) // SON LEVEL
-        return;
     var nextLevelData = processData.levelData;
     if (nextLevelData != null) {
         $("#level-container").animate({
