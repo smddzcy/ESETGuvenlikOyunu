@@ -37,21 +37,13 @@ class CalculatePoint
     {
         $point = 20;
         $originalArray = array(
-            0 => 0,
-            1 => 0,
-            2 => 1,
-            3 => 0,
-            4 => 1,
+            0, 0, 1, 0, 1,
         );
-
         foreach ($array as $k => $v) {
-            if ($array[$k] !== $v)
+            if ($originalArray[$k] != $v)
                 $point -= 4;
         }
-        if ($point >= 0 && $point <= 20)
-            return $point;
-        else
-            return 0;
+        return $point;
     }
 
     public function calculate()
