@@ -67,9 +67,9 @@ class User_DB_Helper
         return $this->db->query($query);
     }
 
-    public function checkLevelCode($levelCode)
+    public function checkLevelCode($currentLevel, $levelCode)
     {
-        $query = "SELECT * FROM level_codes WHERE code=" . $levelCode;
+        $query = "SELECT * FROM level_codes WHERE code=" . $levelCode . " AND _ID=" . $currentLevel;
         $result = $this->db->query($query);
         if ($result !== false && $this->db->affected_rows >= 1) {
             return true;

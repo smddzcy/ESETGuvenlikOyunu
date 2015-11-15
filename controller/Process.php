@@ -65,11 +65,11 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
             if (isset($_COOKIE['platform_id'])) { //todo: platform id'yi cookieye at
                 $socialID = (int)$_COOKIE['platform_id'];
                 $levelCode = (int)$data;
-                $isCodeOK = $userDBHelper->checkLevelCode($levelCode);
+                $currentLevel = $userDBHelper->getLevel($socialID);
+                $isCodeOK = $userDBHelper->checkLevelCode($currentLevel, $levelCode);
                 if ($isCodeOK === true) {
                     require_once("PointCalculator.php");
                     // Add points
-                    $currentLevel = $userDBHelper->getLevel($socialID);
                     $calculatePoint = new CalculatePoint($currentLevel, $data);
                     $point = $calculatePoint->calculate();
                     $userDBHelper->increasePoint($socialID, $point / 5);
