@@ -10,7 +10,7 @@ body {
 	background: -moz-radial-gradient(#0D545B, #16838C, #0D545B); /* For Firefox 3.6 to 15 */
 	background: radial-gradient(#0D545B, #16838C, #0D545B); /* Standard syntax */
 	background-repeat:no-repeat;
-	background-size:cover;
+	background-size:contain;
 	padding:0 !important;
 }
 .nav .open a {
@@ -73,14 +73,14 @@ body {
 #level .panel .panel-heading h2 {
 	font-size:18px;
 }
-#level .panel .panel-body {
-	text-align:center;
-	max-height:700px;
-	overflow-y:scroll;
+#level .panel .panel-body{
+	margin-top:100px;
+	text-align:center; 	
 }
-#level .panel.last-scene .panel-body {
-	overflow-y:hidden;	
-	max-height:none;
+#level .panel.level-2 .panel-body {
+	
+	max-height:500px;
+	overflow-y:scroll;
 }
 #level .panel .panel-body input[type=password] {
 	width:160px;
@@ -197,7 +197,7 @@ ul#mail-list .btn {
 	margin-right:10px;
 }
 .last-scene .panel-body h1 {
-	font-size:30px;
+	font-size:40px;
 }
 .last-scene .panel-body p {
 	margin-top:10px;

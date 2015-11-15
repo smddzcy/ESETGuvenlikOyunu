@@ -92,7 +92,7 @@ function getIntoLevel() {
 }
 
 var c = 0;
-$(".level-2 img").on('click', function () {
+$("#level-container").on('click', '.level-2 img', function () {
     ++c;
     swal({
         title: 'Zararlı İçerik!',
