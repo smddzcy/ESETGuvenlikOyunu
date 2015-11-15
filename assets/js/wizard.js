@@ -17,13 +17,15 @@ $("#password").keypress(function () {
     progress_bar.attr('aria-valuenow', val);
     progress_bar.css('width', val + "%");
 
+    var bar_text = $("#password-strength-text");
     var bar_class = "danger";
-    var bar_text = "çok kısa.";
+
+    bar_text.html("Çok kısa");
     if (val > 25 && val < 50) {
         bar_class = "warning";
-        var bar_text = "yetersiz.";
+        bar_text.html("Yetersiz");
     } else if (val > 50) {
-        var bar_text = "güçlü.";
+        bar_text.html("Güçlü");
     }
 
     progress_bar.attr('class', 'progress-bar progress-bar-' + bar_class);
