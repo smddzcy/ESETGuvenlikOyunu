@@ -55,12 +55,8 @@ class SM_Helper {
 
 		$sigBase = $sigBase."&".rawurlencode($sigParamString);
 
-		var_dump($sigBase);
-
 		$sigKey = rawurlencode($consumerSecret) . "&" . rawurlencode($oauthTokenSecret);
 		$oauthSig = base64_encode(hash_hmac("sha1", $sigBase, $sigKey, true));
-
-		var_dump($oauthSig);
 
 		$headers = array(
 			"Authorization: OAuth oauth_consumer_key=\"".$consumerKey."\", ".
