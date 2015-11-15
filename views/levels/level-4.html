@@ -1,0 +1,43 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1665895287021960',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id="pre-level">
+    <img src="../assets/images/dialog-lvlpswrd.png" alt="">
+
+    <div class="btn btn-default" onclick="getIntoLevel()">Hemen Başla!</div>
+</div>
+<div id="level">
+    <div class="panel panel-default level-1">
+        <div class="panel-heading">
+            <h1><b>Seviye 4: Güçlü Bir Şifre</b></h1>
+
+            <h2>Görev: Nebahat Teyzenin güçlü bir şifre tanımlamasına yardımcı ol.</h2>
+        </div>
+        <input type="hidden" id="levelCode" value="48547757">
+        <div class="panel-body">
+        <script type="text/javascript">
+            FB.ui({
+              method: 'share',
+              href: 'http://localhost/ESETGuvenlikOyunu',
+            }, function(response){
+                
+            });
+        </script>
+            
+        </div>
+    </div>
+</div>
