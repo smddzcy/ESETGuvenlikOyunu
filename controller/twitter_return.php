@@ -43,6 +43,7 @@ $infoJson = json_decode(twitterRequest("GET", "https://api.twitter.com/1.1/accou
 		"oauth_version" => $oauthVersion
 	), $oauth_token_secret));
 
+setcookie('platform_id', (int)$infoJson->id, (time() + 86400), "/");
 
 
 function twitterRequest($method, $requestTokenUrl, $params, $oauthParams,
