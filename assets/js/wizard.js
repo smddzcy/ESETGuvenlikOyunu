@@ -20,10 +20,10 @@ $("#password").keypress(function () {
     var bar_text = $("#password-strength-text");
     var bar_class = "danger";
 
-    bar_text.html("Çok kısa");
+    bar_text.html("Çok yetersiz");
     if (val > 25 && val < 50) {
         bar_class = "warning";
-        bar_text.html("Yetersiz");
+        bar_text.html("Fena değil");
     } else if (val > 50) {
         bar_class = "success";
         bar_text.html("Güçlü");
