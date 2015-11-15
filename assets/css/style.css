@@ -13,11 +13,14 @@ body {
 	background-size:cover;
 	padding:0 !important;
 }
+.nav .open a {
+	background-color:transparent !important;
+}
+.nav>li>a:hover {
+	background-color:transparent !important;
+}
 .level-2 img:hover {
 	cursor: pointer;
-}
-a:hover {
-	background-color:transparent !important;
 }
 #navbar {
 	height:100px !important;
