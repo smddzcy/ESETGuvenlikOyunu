@@ -18,8 +18,12 @@ a:hover {
 	width:100%;
 	margin-top:50px;
 }
-#level-container .col-xs-3 img {
-	
+#level-container #pre-level {
+	position:absolute;
+	width:200px;
+}
+#level-container #pre-level .col-xs-3 img {
+	width:100%;
 }
 .username {
 	color:white;
