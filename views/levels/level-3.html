@@ -19,9 +19,12 @@
     }
 
     var removeFromList = function (i) {
+        removed++;
         $mail_div = $("#mail_" + i);
+        $mail_div.find(".mark-as-spam").attr("onclick",null);
+        $mail_div.find(".mark-as-safe").attr("onclick",null);
         var answers = [
-            0, 0, 1, 0, 1,
+            0, 0, 1, 0, 1
         ];
         var is_true = js_mails[i] == answers[i];
         if(is_true) {
@@ -33,12 +36,8 @@
         setTimeout(function() {
             $mail_div.fadeOut(250, function () {
                 $mail_div.hide();
-                removed++;
-                if(removed >= 6) {
-                    levelAtla();
-                }
             });
-            if (removed >= 4) {
+            if (removed >= 5) {
                 nextLevel(3);
             }
         }, 1000);
