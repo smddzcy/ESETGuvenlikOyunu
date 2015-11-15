@@ -9,10 +9,10 @@
                 $userDBHelper = new User_DB_Helper();
                 $socialID = (int)$_COOKIE['platform_id'];
                 $currentLevel = $userDBHelper->getLevel($socialID);
+                include "../views/levels/level-{$currentLevel}.html";
             } else {
-                $currentLevel = 1;
+                header("Location: http://localhost/ESETGuvenlikOyunu/");
             }
-            include "../views/levels/level-{$currentLevel}.html";
             ?>
         </div>
     </div>
