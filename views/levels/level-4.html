@@ -1,43 +1,53 @@
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1665895287021960',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
+<style>
+.btnz {
+    display: block;
+    float: left;
+    padding: 10px 15px;
+    border:none;
+    background-color: #ececec;
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFF;
+}
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-<div id="pre-level">
-    <img src="../assets/images/dialog-lvlpswrd.png" alt="">
+.btnz:hover {
+    color: #efefef;
+}
 
-    <div class="btn btn-default" onclick="getIntoLevel()">Hemen Başla!</div>
-</div>
-<div id="level">
-    <div class="panel panel-default level-1">
-        <div class="panel-heading">
-            <h1><b>Seviye 4: Güçlü Bir Şifre</b></h1>
+.facebook {
+    background-color: #3b5998;
+}
 
-            <h2>Görev: Nebahat Teyzenin güçlü bir şifre tanımlamasına yardımcı ol.</h2>
-        </div>
+.twitter {
+    background-color: #55acee;
+}
+
+</style>
+<div id="level" class="level-last-scene">
+    <div class="checkout-wrap">
+        <ul class="checkout-bar">
+            <li class="visited first">
+                <a href="#"></a>
+            </li>
+            <li class="visited"></li>
+            <li class="visited previous"></li>
+            <li class="active"></li>
+        </ul>
+    </div>
+    <div class="panel panel-default level-1 last-scene">
+        
         <input type="hidden" id="levelCode" value="48547757">
         <div class="panel-body">
-        <script type="text/javascript">
-            FB.ui({
-              method: 'share',
-              href: 'http://localhost/ESETGuvenlikOyunu',
-            }, function(response){
-                
-            });
-        </script>
-            
+            <h1><b>Nebahat Teyze'ye yardımcı oldun!</b></h1>
+            <img src="../assets/images/nebahatteyze.png" style="height:400px;">
+            <h3>Toplam skor: 88/100</h3>
+            <div class="last-scene-social-media">
+                <a class="btnz share facebook" href="#" onclick="shareFacebook()"><i class="fa fa-facebook"></i> Skoru Paylaş</a>
+                <a class="btnz share twitter" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F&ref_src=twsrc%5Etfw&text=ESET%20G%C3%BCvenlik%20Oyunu%27ndan%20tam%C4%B1%20tam%C4%B1na%203000%20puan%20kazand%C4%B1m.%20Siz%20de%20deneyin.&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FESETGuvenlikOyunu%2Foyun%2F%23"
+                  data-text="ESET Güvenlik Oyunu'ndan tamı tamına 3000 puan kazandım. Siz de deneyin."><i class="fa fa-twitter"></i> Skoru Tweet'le</a>
+            </div>
+            <div class="clearfix"></div>
+            <p>Sayende Nebahat Teyze internette güvenle dolaşabilecek. Sen Nebahat Teyze'nin getirdiği su böreğini yerken, 2 ay lisanslı ESET Smart Security 8'i yükleyebilirsin.</p>
         </div>
     </div>
 </div>

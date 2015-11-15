@@ -60,8 +60,6 @@ function nextLevel(level) {
         "levelCode": $("#levelCode").val(),
         "pointsData": pointsData
     });
-    if (pointsData.level == 3) // SON LEVEL
-        return;
     var nextLevelData = processData.levelData;
     if (nextLevelData != null) {
         $("#level-container").animate({
@@ -94,7 +92,7 @@ function getIntoLevel() {
 }
 
 var c = 0;
-$(".level-2 img").on('click', function () {
+$("#level-container").on('click', '.level-2 img', function () {
     ++c;
     swal({
         title: 'Zararlı İçerik!',
