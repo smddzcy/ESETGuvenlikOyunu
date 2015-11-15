@@ -9,7 +9,7 @@ class SM_Helper {
 	public function connectFacebook() {
 		header("Location: https://www.facebook.com/dialog/oauth?".
 		    "client_id=1665895287021960".
-		    "&redirect_uri=http://localhost/esetGuvenlik/facebook_return.php");
+		    "&redirect_uri=http://localhost/ESETGuvenlikOyunu/controller/facebook_return.php");
 	}
 
 	public function connectTwitter() {
@@ -21,7 +21,7 @@ class SM_Helper {
 		$curl = curl_init();
 
 		$requestTokenUrl = "https://api.twitter.com/oauth/request_token";
-		$callbackUrl = "http://localhost/esetGuvenlik/controller/twitter_return.php";
+		$callbackUrl = "http://localhost/ESETGuvenlikOyunu/controller/twitter_return.php";
 		$oauthTimestamp = time();
 		$nonce = md5(mt_rand()); 
 		$oauthSignatureMethod = "HMAC-SHA1"; 

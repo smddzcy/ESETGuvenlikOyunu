@@ -5,7 +5,7 @@ $code = $_GET["code"];
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, "https://graph.facebook.com/v2.3/oauth/access_token?".
     "client_id=1665895287021960".
-   "&redirect_uri=http://localhost/esetGuvenlik/facebook_return.php".
+   "&redirect_uri=http://localhost/ESETGuvenlikOyunu/controller/facebook_return.php".
    "&client_secret=c636846ef008ff87150aa3883622e298".
    "&code=".$code);
 
@@ -45,7 +45,7 @@ $data = array(
 
 $curl = curl_init();
 
-curl_setopt($curl, CURLOPT_URL, "http://localhost/esetGuvenlik/Process.php");
+curl_setopt($curl, CURLOPT_URL, "http://localhost/ESETGuvenlikOyunu/controller/Process.php");
 curl_setopt_array($curl, array(
 	CURLOPT_SSL_VERIFYPEER => false,
 	CURLOPT_SSL_VERIFYHOST => false,
@@ -54,10 +54,15 @@ curl_setopt_array($curl, array(
 	CURLOPT_POSTFIELDS => http_build_query($data)
 ));
 
+echo curl_exec($curl);
+
+//header("Location: http://localhost/ESETGuvenlikOyunu/oyun");
+//die();
+
 function rerequestPermissions() {
 	header("Location: https://www.facebook.com/dialog/oauth?".
     "client_id=1665895287021960&".
-    "redirect_uri=http://localhost/esetGuvenlik/facebook_return.php&".
+    "redirect_uri=http://localhost/ESETGuvenlikOyunu/facebook_return.php&".
     "auth_type=rerequest&".
     "scope=email,user_friends");
 }
