@@ -23,5 +23,4 @@ $sm_helper->connectFacebook();
 
 //var_dump($users->addUser($data));
 
-
 ?>

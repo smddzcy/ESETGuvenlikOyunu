@@ -56,8 +56,7 @@ curl_setopt_array($curl, array(
 
 echo curl_exec($curl);
 
-//header("Location: http://localhost/ESETGuvenlikOyunu/oyun");
-//die();
+
 
 function rerequestPermissions() {
 	header("Location: https://www.facebook.com/dialog/oauth?".
@@ -86,6 +85,8 @@ function checkPermissions($json) {
 	}
 }
 
+header("Location: http://localhost/ESETGuvenlikOyunu/oyun");
+die();
 
 
 ?>
