@@ -5,6 +5,7 @@
 	    <script src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>
 	    <script src="<?php echo BASE_URL; ?>controller/Handler.js"></script>
 	    <script src="<?php echo BASE_URL; ?>assets/js/wizard.js"></script>
+	    <script src="<?php echo BASE_URL; ?>assets/js/sweetalert2.min.js"></script>
 	    <script src="<?php echo BASE_URL; ?>assets/js/jquery.easing.js"></script>
 	</body>
 </html>

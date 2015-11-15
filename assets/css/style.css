@@ -4,6 +4,9 @@
 a {
 	color:black;
 }
+.level-2 img:hover {
+	cursor: pointer;
+}
 a:hover {
 	background-color:transparent !important;
 }
@@ -54,6 +57,8 @@ a:hover {
 }
 #level .panel .panel-body {
 	text-align:center;
+	max-height:700px;
+	overflow-y:scroll;
 }
 #level .panel .panel-body input[type=password] {
 	width:160px;

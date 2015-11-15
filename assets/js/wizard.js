@@ -60,3 +60,11 @@ function getIntoLevel() {
 		});
 	});
 }
+$(".level-2 img").on('click', function() {
+    swal({
+        title: 'Zararlı İçerik!',
+        text: 'Bu tarz reklamlar bilgi hırsızlığı amacıyla oluşturulmuş ya da insanları kandırmaya yönelik içerikler barındırıyor olabilir.',
+        type: 'error',
+        confirmButtonText: 'Tamam'
+    });
+});

@@ -18,7 +18,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="<?php echo BASE_URL; ?>cikis">Çıkış Yap</a>
+              <a href="http://localhost/ESETGuvenlikOyunu/logout.php">Çıkış Yap</a>
             </li>
           </ul>
         </li>
