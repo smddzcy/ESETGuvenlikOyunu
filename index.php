@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE['platform_id'])) {
-    header("Location: http://localhost/ESETGuvenlikOyun/oyun/");
+    header("Location: http://localhost/ESETGuvenlikOyun/oyun/index.php");
 }
 include 'views/layouts/header.php';
 ?>
