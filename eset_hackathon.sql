@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.44, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.6.27, for osx10.8 (x86_64)
 --
 -- Host: localhost    Database: eset_hackathon
 -- ------------------------------------------------------
--- Server version	5.5.44-0ubuntu0.14.04.1
+-- Server version	5.6.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `level_codes` (
   `name` int(11) NOT NULL,
   `code` int(11) NOT NULL,
   PRIMARY KEY (`_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `level_codes` (
 
 LOCK TABLES `level_codes` WRITE;
 /*!40000 ALTER TABLE `level_codes` DISABLE KEYS */;
-INSERT INTO `level_codes` VALUES (1,0,2);
+INSERT INTO `level_codes` VALUES (1,1,12973284),(2,1,28502505),(3,1,94028402);
 /*!40000 ALTER TABLE `level_codes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `users` (
   `points` int(11) NOT NULL,
   `_level` int(11) NOT NULL,
   PRIMARY KEY (`_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'Mahmut Karaca',0,2147483647,'mahmutkaraca95@gmail.com',0,1);
+INSERT INTO `users` VALUES (3,'Mahmut Karaca',0,2147483647,'mahmutkaraca95@gmail.com',0,1),(18,'Samed DÃ¼zÃ§ay',1,301644041,'NULL',25,3);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -78,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-15  2:04:52
+-- Dump completed on 2015-11-15  6:37:27
