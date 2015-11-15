@@ -48,3 +48,13 @@ function nextLevel() {
 function calculatePoint(data) {
     return process("calculatePoint", data).point;
 }
+
+function getIntoLevel() {
+	$("#pre-level").fadeOut(500, function() {
+		$("#level").animate({
+			opacity: 1
+		}, 1000, function() {
+
+		});
+	});
+}

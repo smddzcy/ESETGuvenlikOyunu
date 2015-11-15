@@ -1,24 +1,19 @@
-<div class="panel panel-default level-1">
-	<div class="panel-heading">Yis</div>
-    <input type="hidden" id="levelCode" value="2xdnf2yncfdsn10tn1230nt12n3nbgasdmn1293n214">
-	<div class="panel-body">
-        <div class="col-xs-3">
-            
-        </div>
-        <div class="col-xs-9">
-            Nebahat Teyze'nin şifresini oluşturmasına yardımcı ol!<br><br>
-            <form>
-                <fieldset>
-                    <legend>Please type in your password</legend>
-                    Pass: <input type="password" id="password" />
-                    <div id="password-strength">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+<div id="pre-level">
+    <img src="../assets/images/dialog-lvlpswrd.png" alt="">
+    <div class="btn btn-default" onclick="getIntoLevel()">Hemen Başla!</div>
+</div>
+<div id="level">
+    <div class="panel panel-default level-1">
+        <div class="panel-heading">Nebahat Teyze'ye Güçlü Bir Şifre Oluşturmasında Yardımcı Ol</div>
+        <input type="hidden" id="levelCode" value="2xdnf2yncfdsn10tn1230nt12n3nbgasdmn1293n214">
+        <div class="panel-body">
+            Pass: <input type="password" id="password" />
+            <div id="password-strength">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+            </div>
             <div class="btn btn-primary" onclick="nextLevel()">İleri</div>
         </div>
-	</div>
+    </div>
 </div>
