@@ -71,6 +71,11 @@ a:hover {
 	margin: 0 auto;
 	padding:30px 30px;
 }
+.password-group-upper-text {
+	width:500px;
+	margin: 0 auto;
+	text-align:left;
+}
 .username {
 	color:white;
 	font-size:20px;
