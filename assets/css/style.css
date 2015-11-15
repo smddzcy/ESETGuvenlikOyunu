@@ -163,3 +163,6 @@ body {
 	background-repeat:no-repeat;
 	background-size:cover;
 }
+.dropdown.open {
+	background-color:transparent !important;
+}
