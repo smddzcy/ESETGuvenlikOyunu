@@ -39,7 +39,8 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                     '_level' => 1
                 ));
             }
-            $_COOKIE['platform_id'] = (int)$data['platform_id'];
+            if (!isset($_COOKIE['platform_id']))
+                setcookie('platform_id', (int)$data['platform_id']);
             break;
 
         // Have no idea what it does, but "Mahmut: lazım olur"
