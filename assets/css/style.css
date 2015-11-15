@@ -64,6 +64,9 @@ body {
 #level {
 	opacity:0.2;
 }
+#level.level-last-scene {
+	opacity:1;
+}
 #level .panel .panel-heading h1 {
 	font-size:22px;
 }
@@ -74,6 +77,10 @@ body {
 	text-align:center;
 	max-height:700px;
 	overflow-y:scroll;
+}
+#level .panel.last-scene .panel-body {
+	overflow-y:hidden;	
+	max-height:none;
 }
 #level .panel .panel-body input[type=password] {
 	width:160px;
@@ -188,4 +195,19 @@ ul#mail-list .btn {
 }
 .mark-as-safe {
 	margin-right:10px;
+}
+.last-scene .panel-body h1 {
+	font-size:30px;
+}
+.last-scene .panel-body p {
+	margin-top:10px;
+	font-size:30px;
+}
+.last-scene-social-media {
+	margin:0 auto;
+	width:420px;
+}
+.last-scene-social-media a {
+	width:200px;
+	margin:0 5px;
 }
