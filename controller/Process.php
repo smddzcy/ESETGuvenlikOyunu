@@ -74,7 +74,7 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                 $levelCode = (int)$data["levelCode"];
                 $pointsData = $data["pointsData"];
                 $currentLevel = $userDBHelper->getLevel($socialID);
-                if($currentLevel == 4){
+                if ($currentLevel == 4) {
                     $newLevelFile = Config::LEVELS_DIRECTORY . "level-4.html";
                     $returnData["levelData"] = file_get_contents($newLevelFile);
                     break;
@@ -99,6 +99,8 @@ if (in_array($function, Config::$VALID_FUNCTIONS)) {
                             $point = 0;
                             break;
                     }
+                    if ($point < 0) $point = 0;
+                    if ($point > 20) $point = 20;
                     $userDBHelper->increasePoint($socialID, $point);
                     // Increase level & get to new level
                     $userDBHelper->increaseLevel($socialID);
