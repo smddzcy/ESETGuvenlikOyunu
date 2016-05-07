@@ -3,8 +3,8 @@
 class Config
 {
     const DB_HOST = "localhost";
-    const DB_USERNAME = "root";
-    const DB_PASSWORD = "1233211";
+    const DB_USERNAME = "wow";
+    const DB_PASSWORD = "wow";
     const DB_DATABASE = "eset_hackathon";
 
     const BASE_URL = "/Library/WebServer/Documents/ESETGuvenlikOyunu/";
